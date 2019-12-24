@@ -13,4 +13,3 @@ add_subdirectory(bzip2_lib)
 target_link_libraries(bzip2_run bzip2_lib)
 add_subdirectory(google_tests)
 add_executable(bzip2 ${SOURCE_FILES} main.cpp)
-

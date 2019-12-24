@@ -11,6 +11,9 @@
 
 extern const int CHAR_AMOUNT;
 
+
+/* FOR MORE INFORMATION ABOUT ENCODING/DECODING DATA REPRESENTATION CHECK README.MD */
+
 struct huffman {
 public:
 
