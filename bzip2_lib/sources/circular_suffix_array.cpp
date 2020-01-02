@@ -1,8 +1,10 @@
 #include "../headers/circular_suffix_array.hpp"
 
-extern const  int CHAR_AMOUNT=256;
+extern const int CHAR_AMOUNT = 256;
 
-long long int circular_suffix_array::recount_classes(std::vector<std::pair<long long int , std::pair<long long int, long long int >>> &suffixes, long long int shift) {
+long long int circular_suffix_array::recount_classes(
+        std::vector<std::pair<long long int, std::pair<long long int, long long int >>> &suffixes,
+        long long int shift) {
     std::vector<long long int> class_of_suffix(suffixes.size());
     long long int current_class = 0;
     for (long long int i = 1; i < suffixes.size(); i++) {
@@ -21,7 +23,9 @@ long long int circular_suffix_array::recount_classes(std::vector<std::pair<long 
     return current_class;
 }
 
-void circular_suffix_array::count_sort(std::vector<std::pair<long long int, std::pair<long long int, long long int>>> &suffixes, long long int max_class) {
+void circular_suffix_array::count_sort(
+        std::vector<std::pair<long long int, std::pair<long long int, long long int>>> &suffixes,
+        long long int max_class) {
     std::vector<long long int> class_counter(max_class + 1, 0);
     for (auto triple : suffixes) {
         ++class_counter[triple.second.first];
@@ -43,10 +47,9 @@ void circular_suffix_array::count_sort(std::vector<std::pair<long long int, std:
 
 circular_suffix_array::circular_suffix_array(const std::vector<uint8_t> &input)
         : indexes(input.size()) {
-    long long int size = input.size();
     std::vector<std::pair<long long int, std::pair<long long int, long long int>>> suffixes;
     for (long long int i = 0; i < input.size(); i++) {
-        suffixes.push_back({i, {input[i] , 0}});
+        suffixes.push_back({i, {input[i], 0}});
     }
     count_sort(suffixes, 256);
     recount_classes(suffixes, 0);
@@ -55,7 +58,7 @@ circular_suffix_array::circular_suffix_array(const std::vector<uint8_t> &input)
         count_sort(suffixes, max_class);
     }
     for (long long int i = 0; i < suffixes.size(); i++) {
-        indexes[i]=(suffixes[i].first);
+        indexes[i] = (suffixes[i].first);
     }
 }
 
