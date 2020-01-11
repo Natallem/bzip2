@@ -9,9 +9,9 @@ void bzip2::decode(std::istream &input, std::ostream &output) {
 }
 
 void bzip2::coder(std::istream &input, std::ostream &output,
-                  std::function<void(std::istream &input, std::ostream &output)> const &function_1,
-                  std::function<void(std::istream &input, std::ostream &output)> const &function_2,
-                  std::function<void(std::istream &input, std::ostream &output)> const &function_3) {
+                  coding_function function_1,
+                  coding_function function_2,
+                  coding_function function_3) {
 
     std::stringstream encoding_data_1;
     std::stringstream encoding_data_2;

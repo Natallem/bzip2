@@ -1,7 +1,5 @@
 #include "../headers/circular_suffix_array.hpp"
 
-extern const int CHAR_AMOUNT = 256;
-
 int64_t circular_suffix_array::recount_classes(
         std::vector<std::pair<int64_t, std::pair<int64_t, int64_t >>> &suffixes,
         int64_t shift) {

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <headers/move_to_front.hpp>
 #include "../headers/bwt.hpp"
 #include "../headers/circular_suffix_array.hpp"
 #include "../headers/reader_32_bit.hpp"
@@ -31,12 +32,12 @@ void BWT::decode(std::istream &input, std::ostream &output)
     uint32_t number = reader_32_bit::read_uint32_t(input);
     std::vector<uint8_t> input_chars((std::istreambuf_iterator<char>(input)),
                                      std::istreambuf_iterator<char>());
-    std::vector<size_t> chars_counter(CHAR_AMOUNT, 0);
+    std::vector<size_t> chars_counter(move_to_front::CHARS_AMOUNT, 0);
     for (size_t i = 0; i < input_chars.size(); i++) {
         ++chars_counter[input_chars[i]];
     }
     size_t sum = 0;
-    for (int i = 0; i < CHAR_AMOUNT; i++) {
+    for (size_t i = 0; i < chars_counter.size(); i++) {
         sum += chars_counter[i];
         chars_counter[i] = sum - chars_counter[i];
     }

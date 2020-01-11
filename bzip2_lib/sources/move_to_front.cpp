@@ -3,7 +3,7 @@
 
 void move_to_front::encode(std::istream &input, std::ostream &output)
 {
-    std::list<uint8_t> symbols(CHAR_AMOUNT);
+    std::list<uint8_t> symbols(move_to_front::CHARS_AMOUNT);
     std::iota(symbols.begin(), symbols.end(), 0);
     std::vector<uint8_t> input_chars((std::istreambuf_iterator<char>(input)),
                                      std::istreambuf_iterator<char>());
@@ -19,7 +19,7 @@ void move_to_front::encode(std::istream &input, std::ostream &output)
 
 void move_to_front::decode(std::istream &input, std::ostream &output)
 {
-    std::vector<uint8_t> symbols(CHAR_AMOUNT);
+    std::vector<uint8_t> symbols(move_to_front::CHARS_AMOUNT);
     std::iota(symbols.begin(), symbols.end(), 0);
     std::vector<uint8_t> input_chars((std::istreambuf_iterator<char>(input)),
                                      std::istreambuf_iterator<char>());

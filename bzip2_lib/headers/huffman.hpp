@@ -9,9 +9,6 @@
 
 #include "reader_32_bit.hpp"
 
-extern const int CHAR_AMOUNT;
-
-
 /* FOR MORE INFORMATION ABOUT ENCODING/DECODING DATA REPRESENTATION CHECK README.MD */
 
 struct huffman {

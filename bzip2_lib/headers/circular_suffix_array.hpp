@@ -4,9 +4,6 @@
 #include <string>
 #include <vector>
 
-extern const int CHAR_AMOUNT;
-
-
 class circular_suffix_array {
 
 public:

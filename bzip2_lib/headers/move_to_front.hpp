@@ -7,8 +7,6 @@
 #include <numeric>
 #include <list>
 
-extern const int CHAR_AMOUNT;
-
 struct move_to_front
 {
 
@@ -16,6 +14,7 @@ struct move_to_front
 
     static void decode(std::istream& input, std::ostream& output);
 
+    static const int CHARS_AMOUNT = 256;
 };
 
 #endif /* MOVE_TO_FRONT_HPP */

@@ -11,6 +11,8 @@
 
 class bzip2 {
 
+    using coding_function = std::function<void(std::istream &input, std::ostream &output)> const &;
+
 public:
 
     static void encode(std::istream &input, std::ostream &output);
@@ -21,9 +23,9 @@ private:
 
     static void coder(std::istream &input,
                       std::ostream &output,
-                      std::function<void(std::istream &input, std::ostream &output)> const &function_1,
-                      std::function<void(std::istream &input, std::ostream &output)> const &function_2,
-                      std::function<void(std::istream &input, std::ostream &output)> const &function_3);
+                      coding_function function_1,
+                      coding_function function_2,
+                      coding_function function_3);
 };
 
 #endif //BZIP_2_HPP

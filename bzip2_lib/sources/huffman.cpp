@@ -1,8 +1,6 @@
 #include "../headers/huffman.hpp"
 #include "../headers/reader_32_bit.hpp"
 
-extern const int CHAR_AMOUNT;
-
 void huffman::encode(std::istream &input, std::ostream &output) {
     std::string data(std::istreambuf_iterator<char>(input), {});
     std::vector<unsigned long int> chars_frequency = count_chars_frequency(data);
