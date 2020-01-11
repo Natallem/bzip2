@@ -11,14 +11,14 @@ void BWT::encode(std::istream &input, std::ostream &output)
                                      std::istreambuf_iterator<char>());
     circular_suffix_array suffixArray(input_chars);
     for (size_t i = 0; i < suffixArray.size(); i++) {
-        if (suffixArray[i] == 0) {
+        if (!suffixArray[i]) {
             reader_32_bit::write_uint32_t(i,output);
             break;
         }
     }
     for (size_t i = 0; i < suffixArray.size(); i++) {
         size_t cur_index = suffixArray[i];
-        if (cur_index == 0) output << (uint8_t )input_chars[input_chars.size() - 1];
+        if (!cur_index) output << input_chars[input_chars.size() - 1];
         else output << (uint8_t) input_chars[cur_index - 1];
     }
 }

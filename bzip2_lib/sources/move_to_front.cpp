@@ -10,7 +10,10 @@ void move_to_front::encode(std::istream &input, std::ostream &output)
     for (uint8_t cur_char : input_chars) {
         auto symbols_itr = symbols.begin();
         uint8_t counter = 0;
-        for (; cur_char != *symbols_itr && symbols_itr != symbols.end(); ++counter, ++symbols_itr);
+        while (cur_char != *symbols_itr && symbols_itr != symbols.end()) {
+            ++counter;
+            ++symbols_itr;
+        }
         output << counter;
         symbols.emplace_front(*symbols_itr);
         symbols.erase(symbols_itr);
