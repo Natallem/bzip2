@@ -21,12 +21,12 @@ private:
 
     std::vector<size_t> indexes;
 
-    void count_sort(std::vector<std::pair<long long int, std::pair<long long int, long long int>>> &suffixes,
-                    long long int max_class);
+    void count_sort(std::vector<std::pair<int64_t, std::pair<int64_t, int64_t >>> &suffixes,
+                    int64_t max_class);
 
-    long long int
-    recount_classes(std::vector<std::pair<long long int, std::pair<long long int, long long int>>> &suffixes,
-                    long long int shift);
+    int64_t
+    recount_classes(std::vector<std::pair<int64_t, std::pair<int64_t, int64_t> >> &suffixes,
+                    int64_t shift);
 
 };
 
